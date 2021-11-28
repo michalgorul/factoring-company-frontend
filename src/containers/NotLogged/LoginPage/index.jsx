@@ -11,11 +11,13 @@ const Login = () => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [isPending, setIsPending] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         let login = {username, password}
+        setIsPending(true);
 
         fetch(`${config.API_URL}/login`, {
             method: "POST",
@@ -25,6 +27,7 @@ const Login = () => {
             body: JSON.stringify(login)
         })
             .then((response) => {
+                setIsPending(false);
                 if (response.ok) {
                     let myHeaders = new Headers(response.headers);
                     let token = myHeaders.get('Authorization').replace("Bearer ", "");
@@ -82,11 +85,16 @@ const Login = () => {
                         </div>
 
                         <div className="text-center text-lg-start mt-4 pt-2">
+                            {!isPending &&
                             <button onClick={handleSubmit} type="submit" className="btn btn-primary btn-lg rounded-pill"
                                     style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}>Login
-                            </button>
-                            <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
-                                <a href={"/register"} className="link-primary">Register</a>
+                            </button>}
+                            {isPending &&
+                            <button onClick={handleSubmit} type="submit" className="btn btn-primary btn-lg rounded-pill" disabled
+                                    style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}>Wait...
+                            </button>}
+
+                            <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href={"/register"} className="link-primary">Register</a>
                             </p>
                         </div>
                         <Marginer direction="vertical" margin={20}/>

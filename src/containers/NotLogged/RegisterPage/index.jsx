@@ -20,6 +20,7 @@ const Register = () => {
     const [street, setStreet] = useState('');
     const [postalCode, setPostalCode] = useState('');
     const [phone, setPhone] = useState('');
+    const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
 
@@ -29,7 +30,7 @@ const Register = () => {
         let isPhonePossible = phone && isPossiblePhoneNumber(phone) ? 'true' : 'false';
         let isPasswordProper = checkPassword(password);
         setPhone(formatPhoneNumber(phone).replaceAll(' ', ''));
-
+        setIsPending(true);
         if (matchingPasswords && isPhonePossible && isPasswordProper) {
 
             const registration = {username, password, email, firstName, lastName, country, city, street, postalCode, phone};
@@ -41,6 +42,7 @@ const Register = () => {
                 body: JSON.stringify(registration)
             })
                 .then((response) => {
+                    setIsPending(false);
                     if (response.ok) {
                         successToast('Registration completed!');
                         infoToast('Confirm your email to be able to login!');
@@ -171,13 +173,16 @@ const Register = () => {
                                 </div>
                             </div>
                             <div className="text-center text-lg-start mt-4 pt-2 justify-content-md-center">
+                                {!isPending &&
                                 <button type="submit" className="btn btn-primary btn-lg rounded-pill"
                                         style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}>Register
-                                </button>
-                                <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account?
-                                    <a href={"/login"} className="link-primary text-decoration-none">
-                                        Sign In
-                                    </a>
+                                </button>}
+                                {isPending &&
+                                <button type="submit" className="btn btn-primary btn-lg rounded-pill" disabled
+                                        style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}>Wait...
+                                </button>}
+
+                                <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href={"/login"} className="link-primary text-decoration-none">Sign In</a>
                                 </p>
                             </div>
                             <Marginer direction="vertical" margin={20}/>
