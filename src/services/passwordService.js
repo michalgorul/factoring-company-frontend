@@ -1,5 +1,4 @@
 import {warningToast} from '../components/toast/makeToast';
-
 const checkPasswordsMatch = (password, password2) => {
     if (password !== password2) {
         warningToast('Passwords are not the same!');

@@ -14,7 +14,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
-    "password-validator": "latest",
     "body-scroll-lock": "^4.0.0-beta.0",
     "bootstrap": "^5.0.2",
     "cdbreact": "^1.1.0",
