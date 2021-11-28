@@ -1,4 +1,5 @@
 import {warningToast} from '../components/toast/makeToast';
+
 const checkPasswordsMatch = (password, password2) => {
     if (password !== password2) {
         warningToast('Passwords are not the same!');
@@ -6,29 +7,46 @@ const checkPasswordsMatch = (password, password2) => {
     }
     return true;
 }
+const hasCorrectLength = (password, min, max) => {
+    return !(password.length < min || password.length > max);
+}
+
+const hasUppercase = (password) => {
+    const regex = new RegExp('(.*[A-Z].*)');
+    return regex.test(password);
+}
+
+const hasLowercase = (password) => {
+    const regex = new RegExp('(.*[a-z].*)');
+    return regex.test(password);
+}
+
+const hasDigits = (password) => {
+    const regex = new RegExp('(.*\\d.*)');
+    return regex.test(password);
+}
+
+const hasNotSpaces = (password) => {
+    const regex = new RegExp('(.* .*)');
+    return !regex.test(password);
+}
+
+const hasSymbols = (password) => {
+    const regex = new RegExp('(.*\\W.*)');
+    return regex.test(password);
+}
+
 
 const checkPassword = (password) => {
-    let passwordValidator = require('password-validator');
 
-    // Create a schema
-    let schema = new passwordValidator();
-
-    // Add properties to it
-    schema
-        .is().min(8)                                    // Minimum length 8
-        .is().max(30)                                  // Maximum length 100
-        .has().uppercase()                              // Must have uppercase letters
-        .has().lowercase()                              // Must have lowercase letters
-        .has().digits()                                // Must have digits
-        .has().not().spaces()                           // Should not have spaces
-        .has().symbols()																// Must have symbols
-
-    if (!schema.validate(password)) {
+    if (hasCorrectLength(password, 8, 30) && hasLowercase(password) && hasUppercase(password) &&
+        hasDigits(password) && hasNotSpaces(password) && hasSymbols(password)) {
+        return true;
+    } else {
         warningToast('Password is improper');
         return false;
     }
 
-    return true;
 }
 
 export {
