@@ -4,15 +4,18 @@ import config from "../../../services/config";
 import useFetchWithToken from "../../../services/useFetchWithToken";
 import axios from "axios";
 import {infoToast} from "../../../components/toast/makeToast";
+import {useState} from "react";
 
 const CreditDetails = () => {
     const {id} = useParams();
     const {data: credit, errorC, isPendingC} = useFetchWithToken(`${config.API_URL}/api/credit/${id}`);
     const {data: user, error: errorU, isPending: isPendingU} = useFetchWithToken(`${config.API_URL}/api/user/current`);
+    const [isPending, setIsPending] = useState(false);
     const history = useHistory();
     const handleSigning = () => {
         const {creditNumber = {}} = credit;
         let tempCreditNumber = creditNumber.replaceAll('/', ',');
+        setIsPending(true);
         axios
             .get(config.API_URL + `/api/credit/document/${tempCreditNumber}`, {
                 responseType: "blob",
@@ -26,6 +29,7 @@ const CreditDetails = () => {
                 let a = document.createElement('a');
                 a.href = fileURL;
                 a.download = user.firstName + '_' + user.lastName + '_' + creditNumber;
+                setIsPending(false);
                 a.click();
             });
     }
@@ -58,7 +62,14 @@ const CreditDetails = () => {
     const displayButtons = (credit) => {
         if (credit && credit.status === 'processing') {
             return (
-                <button className="btn btn-lg btn-primary rounded-pill" onClick={handleSigning}>Sign document</button>
+                <>
+                    {!isPending &&
+                    <button className="btn btn-lg btn-primary rounded-pill" onClick={handleSigning}>Sign document</button>}
+                    {isPending && <button className="btn btn-lg btn-primary rounded-pill" disabled onClick={handleSigning}>
+                        Sign document
+                    </button>}
+                </>
+
             )
         } else if (credit && credit.status === 'funded') {
             return (
