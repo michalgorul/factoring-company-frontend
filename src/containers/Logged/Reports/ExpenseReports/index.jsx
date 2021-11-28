@@ -31,7 +31,7 @@ const ExpenseReports = () => {
     const showSums = () => {
         return (
             <>
-                <div className="container mt-5 h4">
+                <div className="container mt-5 h4 ms-0">
                     <div className="row align-items-start ms-1">
                         <div className="col-12 col-xl-3 mb-3">
                             <div className="mb-2 fs-5">Benefit ({numBenefits}):</div>
@@ -44,7 +44,7 @@ const ExpenseReports = () => {
                         </div>
                     </div>
                 </div>
-                <div className="container h4">
+                <div className="container h4 ms-0">
                     <div className="row align-items-start ms-1">
                         <div className="col-12 col-xl-3 mb-3">
                             <div className="mb-2 fs-5">Drawback ({numDrawbacks}):</div>
@@ -91,7 +91,7 @@ const ExpenseReports = () => {
         if (whatExpenses === 'credit') {
             return (<>
                 {showSums()}
-                <div className="container h4">
+                <div className="container h4 ms-0">
                     <div className="row align-items-start ms-1">
                         <div className="col-12 col-xl-3 mb-3">
                             <div className="mb-2 fs-5">Summary:</div>
@@ -107,7 +107,7 @@ const ExpenseReports = () => {
                 <>
 
                     {showSums()}
-                    <div className="container h4">
+                    <div className="container h4 ms-0">
                         <div className="row align-items-start ms-1">
                             <div className="col-12 col-xl-3 mb-3">
                                 <div className="mb-2 fs-5">Summary:</div>
@@ -131,7 +131,7 @@ const ExpenseReports = () => {
                 </div>
             </div>
 
-            <div className="container mt-5 h4">
+            <div className="container mt-5 h4 ms-0">
                 <div className="row align-items-start ms-1">
                     <div className="col-6 col-lg-3">
                         <div className="form-check">
@@ -154,7 +154,7 @@ const ExpenseReports = () => {
                 </div>
             </div>
 
-            <div className="container mt-5 h4">
+            <div className="container mt-5 h4 ms-0">
                 <div className="row align-items-start ms-1">
                     <div className="col-12 col-xl-3 mb-3">
                         <div className="mb-2 fs-5">Start date:</div>

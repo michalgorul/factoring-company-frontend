@@ -63,7 +63,7 @@ const CreditDetails = () => {
         } else if (credit && credit.status === 'funded') {
             return (
                 <>
-                    <div className="container mt-3">
+                    <div className="container mt-3 ms-0">
                         <div className="row justify-content-between">
                             <div className="col-12 col-lg-5 mb-3">
                                 <button className="btn btn-lg btn-primary btn-block rounded-pill" onClick={handleRemoving}>
@@ -83,7 +83,7 @@ const CreditDetails = () => {
         } else if (credit && credit.status === 'active') {
             return (
                 <>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row">
                             <div className="col-12 col-lg-4 mb-3">
                                 <a className="btn btn-lg btn-primary btn-block rounded-pill"
@@ -128,7 +128,7 @@ const CreditDetails = () => {
                         </div>
                     </div>
                     <h5 className="mt-4 mb-3">General</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start ms-2">
                             <div className="col-6 col-lg-3">
                                 <ul className="list-group list-group-flush">
@@ -151,7 +151,7 @@ const CreditDetails = () => {
 
 
                     <h5 className="mt-4 mb-3">Other</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start ms-2">
                             <div className="col-6 col-lg-3">
                                 <ul className="list-group list-group-flush">
@@ -171,7 +171,7 @@ const CreditDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start">
                             <div className="mt-3 col-12 col-lg-6 text-center">
                                 {displayButtons(credit)}

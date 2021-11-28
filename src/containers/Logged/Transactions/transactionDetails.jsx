@@ -57,7 +57,7 @@ const TransactionDetails = () => {
                     </div>
                 </div>
                 <h5 className="mt-4 mb-3">General</h5>
-                <div className="container">
+                <div className="container ms-0">
                     <div className="row align-items-start ms-2">
                         <div className="col-6 col-lg-3">
                             <ul className="list-group list-group-flush">
@@ -78,7 +78,7 @@ const TransactionDetails = () => {
                     </div>
                 </div>
                 <h5 className="mt-4 mb-3">Currency Information</h5>
-                <div className="container">
+                <div className="container ms-0">
                     <div className="row align-items-start ms-2">
                         <div className="col-6 col-lg-3">
                             <ul className="list-group list-group-flush">

@@ -44,7 +44,7 @@ const Transactions = () => {
                 </div>
             </div>
 
-            <div className="container mt-5 mb-4 h4">
+            <div className="container mt-5 mb-4 h4" style={{marginLeft: "0"}}>
                 <div className="row align-items-start ms-1">
                     <div className="col-6 col-lg-3">
                         <div className="form-check">
@@ -63,7 +63,7 @@ const Transactions = () => {
                 </div>
             </div>
 
-            <div className="container-sm ">
+            <div className="container-sm" style={{marginRight: "0"}}>
                 <div className="row align-content-center justify-content-end mb-4">
                     <div className="col-4 col-xl-2">
                         Sort by: <Select onChange={(e) => setSortOption(e.value)} options={sortOptions}/>

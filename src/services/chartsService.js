@@ -84,7 +84,7 @@ const showChart = (whatChart, data, options) => {
     if (whatChart === 'bar') {
         return (
             <div>
-                <div className="col-11 col-lg-8 mx-auto">
+                <div className="col-10 mx-auto">
                     <Bar data={data} options={options} type={'bar'}/>
                 </div>
             </div>

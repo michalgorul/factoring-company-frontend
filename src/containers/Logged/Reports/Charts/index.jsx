@@ -123,7 +123,7 @@ const Charts = () => {
                             <h4 className="font-weight-bold display-2">Charts</h4>
                         </div>
                     </div>
-                    <div className="container mt-5 mb-4 h4">
+                    <div className="container mt-5 mb-4 ms-0 h4">
                         <div className="row align-items-start ms-1">
                             <div className="col-6 col-lg-3">
                                 <div className="form-check">
@@ -141,7 +141,7 @@ const Charts = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="container mt-5 mb-4 h4">
+                    <div className="container mt-5 mb-4 ms-0 h4">
                         <div className="row align-items-start ms-1">
                             <div className="col-6 col-lg-3">
                                 <div className="form-check">
@@ -164,7 +164,7 @@ const Charts = () => {
 
 
                     <Marginer direction={'vertical'} margin={60}/>
-                    <div className="mb-4">
+                    <div className="mb-4 ms-0">
                         {showChart(whatChart, data, options)}
                     </div>
                 </>)}

@@ -171,14 +171,14 @@ const CustomerDetails = () => {
             <div style={{padding: "70px 0", textAlign: "center"}}><Spinner animation="grow" variant="primary"/></div>}
             {errorC && <div>{errorC}</div>}
             {customer && (
-                <article className="mt-5 ms-3">
+                <article className="container mt-5 ms-3">
                     <div className="media align-items-center py-3">
                         <div className="media-body ml-4">
                             <h4 className="display-3">{customer.firstName + ' ' + customer.lastName}</h4>
                         </div>
                     </div>
                     <h5 className="mt-4 mb-3">Details</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start ms-2">
                             <div className="col-5 col-lg-3">
                                 <ul className="list-group list-group-flush">
@@ -208,9 +208,9 @@ const CustomerDetails = () => {
                     </div>
 
                     <h5 className="mt-4 mb-3">Company</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start ms-2">
-                            <div className="col-3">
+                            <div className="col-5 col-lg-3">
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item list-group-item-action fw-bold">Company name:</li>
                                     <li className="list-group-item list-group-item-action fw-bold">Country:</li>
@@ -221,7 +221,7 @@ const CustomerDetails = () => {
                                     <li className="list-group-item list-group-item-action fw-bold">REGON:</li>
                                 </ul>
                             </div>
-                            <div className="col-4">
+                            <div className="col-7 col-lg-4">
                                 {showCompanyDetails(company)}
                             </div>
                         </div>
@@ -229,16 +229,16 @@ const CustomerDetails = () => {
                     {showEditCompany(company)}
 
                     <h5 className="mt-4 mb-3">Bank account</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start ms-3">
-                            <div className="col-3">
+                            <div className="col-5 col-lg-3">
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item list-group-item-action fw-bold">Bank name:</li>
                                     <li className="list-group-item list-group-item-action fw-bold">Bank account number:</li>
                                     <li className="list-group-item list-group-item-action fw-bold">SWIFT:</li>
                                 </ul>
                             </div>
-                            <div className="col-4">
+                            <div className="col-7 col-lg-4">
                                 {showBankAccountDetails(bank)}
                             </div>
                         </div>

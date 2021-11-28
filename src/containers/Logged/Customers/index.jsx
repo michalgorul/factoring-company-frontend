@@ -1,6 +1,6 @@
 import CustomerList from "./customerList";
 import {Spinner} from 'react-bootstrap';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import useFetchWithToken from "../../../services/useFetchWithToken";
 import config from "../../../services/config";
 
@@ -34,17 +34,22 @@ const Customers = () => {
                 </div>
             </div>
 
-            <div className="container mt-5 mb-2">
+            <div className="container mt-3 me-0">
                 <div className="row">
+                    <div className="col-12 align-items-end align-middle">
+                        <a href={"/user/customers/create"} className="btn btn-primary btn-lg rounded-pill float-end">
+                            Add New
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container mt-5 mb-2 me-0 ms-0">
+                <div className="row justify-content-between">
                     <div className="form-outline form-floating mb-3 col-12 col-lg-6">
                         <input type="text" className="form-control form-control-sm"
                                placeholder="filter items" value={searchTerm} onChange={handleChange}/>
                         <label className="form-label ms-2">Filter</label>
-                    </div>
-                    <div className="col-12 col-lg-6">
-                        <a href={"/user/customers/create"} className="btn btn-primary btn-lg float-end rounded-pill ">
-                            Add New
-                        </a>
                     </div>
                 </div>
             </div>

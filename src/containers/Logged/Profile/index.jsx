@@ -141,10 +141,10 @@ const Profile = () => {
             <div style={{padding: "70px 0", textAlign: "center"}}><Spinner animation="grow" variant="primary"/></div>}
             {errorU && <div>{errorU}</div>}
             {user && (
-                <div className="container flex-grow-1 container-p-y">
+                <div className="container container-p-y" style={{marginLeft: "0"}}>
 
-                    <div className="media align-items-center py-3">
-                        <div className="media-body ml-4">
+                    <div className="media align-items-center py-3 ">
+                        <div className="ml-4">
                             <h4 className="font-weight-bold display-2">Your profile</h4>
                             <h4 className="display-3 mt-5">{user.firstName + ' ' + user.lastName}</h4>
                             <h4 className="lead display-6">{user.email}</h4>
@@ -184,14 +184,14 @@ const Profile = () => {
                     <h5 className="mt-4 mb-3">Bank account</h5>
                     <div className="container">
                         <div className="row align-items-start ms-3">
-                            <div className="col-3">
+                            <div className="col-5 col-lg-3">
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item list-group-item-action fw-bold">Bank name:</li>
                                     <li className="list-group-item list-group-item-action fw-bold">Bank account number:</li>
                                     <li className="list-group-item list-group-item-action fw-bold">SWIFT:</li>
                                 </ul>
                             </div>
-                            <div className="col-4">
+                            <div className="col-7 col-lg-4">
                                 {showBankAccountDetails(bank)}
                             </div>
                         </div>
@@ -205,7 +205,7 @@ const Profile = () => {
                     <h5 className="mt-4 mb-3">Company</h5>
                     <div className="container">
                         <div className="row align-items-start ms-3">
-                            <div className="col-3">
+                            <div className="col-5 col-lg-3">
                                 <ul className="list-group list-group-flush">
                                     <li className="list-group-item list-group-item-action fw-bold">Company name:</li>
                                     <li className="list-group-item list-group-item-action fw-bold">Country:</li>
@@ -216,7 +216,7 @@ const Profile = () => {
                                     <li className="list-group-item list-group-item-action fw-bold">REGON:</li>
                                 </ul>
                             </div>
-                            <div className="col-5">
+                            <div className="col-7 col-lg-4">
                                 {showCompanyDetails(company)}
                             </div>
                         </div>

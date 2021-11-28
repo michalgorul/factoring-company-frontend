@@ -100,7 +100,7 @@ const ProfileEdit = () => {
                             <form onSubmit={handleSubmit}>
                                 <div
                                     className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                                    <p className="lead fw-normal mt-2 mb-3 display-4">Edit Profile</p>
+                                    <p className="lead fw-normal mt-2 mb-4 display-4">Edit Profile</p>
 
                                 </div>
 

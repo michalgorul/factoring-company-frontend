@@ -116,12 +116,12 @@ const Documents = () => {
             <div className="media align-items-center py-3">
                 <div className="media-body ml-4">
                     <h4 className="font-weight-bold display-2">Your documents</h4>
-                    <button onClick={handleShow} className="btn btn-primary rounded-pill fs-4 float-end me-5">Add files +</button>
+                        <button onClick={handleShow} className="btn btn-primary rounded-pill fs-4 float-end me-5"> Add files +</button>
                 </div>
             </div>
 
             <div className="bg-light me-3">
-                <div className="container">
+                <div className="container" style={{marginLeft: "0"}}>
                     <div className="col-12 col-lg-6">
                         <div className="mb-1 mt-3">
                             <span className="display-6 fw-bold mb-2">{formatBytes(usedSpace)} </span> of <span

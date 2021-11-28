@@ -37,7 +37,7 @@ const Credit = () => {
             <div style={{padding: "70px 0", textAlign: "center"}}><Spinner animation="grow" variant="primary"/></div>}
             {usedCredit && (<>
                 <div className="bg-light me-3">
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="col-12 col-lg-6">
                             <div className="mb-1 mt-3">
                                 <span className="display-4 fw-bold mb-2">${usedCredit}</span> of <span
@@ -50,7 +50,7 @@ const Credit = () => {
                     </div>
                 </div>
 
-                <div className="container mt-3">
+                <div className="container mt-3 me-0">
                     <div className="row">
                         <div className="col-12 align-items-center align-middle">
                             <a href={"/user/credit/create"} className="btn btn-primary rounded-pill btn-lg float-end"
@@ -59,7 +59,7 @@ const Credit = () => {
                     </div>
                 </div>
 
-                <div className="container mt-3">
+                <div className="container mt-3 m-0">
                     <div className="row">
                         <div className="col-12 col-lg-6 mb-3">
                             <Nav variant="tabs" defaultActiveKey="active" onSelect={handleSelect} className="fs-5">

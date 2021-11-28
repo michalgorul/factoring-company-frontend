@@ -45,7 +45,7 @@ const Invoices = () => {
     return (
         <>
             <div className="bg-light me-3">
-                <div className="container">
+                <div className="container-fluid m-0">
                     <div className="col-12 col-lg-6">
                         <div className="mb-1 mt-3">
                             <span className="display-4 fw-bold mb-2">${usedCredit}</span> of <span
@@ -57,8 +57,17 @@ const Invoices = () => {
                     </div>
                 </div>
             </div>
+            <div className="container mt-3 me-0">
+                <div className="row">
+                    <div className="col-12 align-items-center align-middle">
+                        <a href={"/user/invoices/create"} className="btn btn-lg btn-primary rounded-pill float-end text-white">Add
+                            new invoice
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-            <div className="container mt-5">
+            <div className="container mt-5 ms-0 m-0">
                 <div className="row">
                     <div className="col-12 col-lg-6 mb-3">
                         <Nav variant="tabs" defaultActiveKey="active" onSelect={handleSelect} className="fs-5">
@@ -72,11 +81,6 @@ const Invoices = () => {
                                 <Nav.Link eventKey="funded">Funded</Nav.Link>
                             </Nav.Item>
                         </Nav>
-                    </div>
-                    <div className="col-12 col-lg-6 align-items-end justify-content-between">
-                        <a href={"/user/invoices/create"} className="btn btn-lg btn-primary rounded-pill float-end text-white">Add
-                            new invoice
-                        </a>
                     </div>
                 </div>
             </div>

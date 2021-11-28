@@ -82,7 +82,7 @@ const InvoiceDetails = () => {
             return (
                 <>
                     <div className="col-12 col-lg-6">
-                        <div className="container mb-4">
+                        <div className="container mb-4 ms-0 p-0">
                             <div className="row align-items-start justify-content-center">
                                 <div className="mt-3 col-12 col-lg-4 text-center">
                                     {!isPending &&
@@ -115,7 +115,7 @@ const InvoiceDetails = () => {
             return (
                 <>
                     <div className="col-12 col-lg-6">
-                        <div className="container mb-4">
+                        <div className="container mb-4 ms-0">
                             <div className="row align-items-start justify-content-center">
                                 <div className="mt-3 col-12 col-lg-5 text-center">
                                     {!isPending &&
@@ -181,14 +181,14 @@ const InvoiceDetails = () => {
             {errorCu && <div>{errorCu}</div>}
             {errorP && <div>{errorP}</div>}
             {invoice && customer && paymentType && currency && (
-                <article className="mt-2 ms-3">
+                <article className="mt-2 ms-3 container">
                     <div className="media align-items-center py-1">
                         <div className="media-body ml-4">
                             <h4 className="display-3">Invoice details</h4>
                         </div>
                     </div>
                     <h5 className="mt-4 mb-3">General</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start ms-2">
                             <div className="col-6 col-lg-3">
                                 <ul className="list-group list-group-flush">
@@ -222,7 +222,7 @@ const InvoiceDetails = () => {
                     </div>
 
                     <h5 className="mt-4 mb-3">Customer Information</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start ms-2">
                             <div className="col-6 col-lg-3">
                                 <ul className="list-group list-group-flush">
@@ -255,7 +255,7 @@ const InvoiceDetails = () => {
                     </div>
 
                     <h5 className="mt-4 mb-3">Payment Information</h5>
-                    <div className="container">
+                    <div className="container ms-0">
                         <div className="row align-items-start">
                             <div className="col-6 col-lg-3">
                                 <ul className="list-group list-group-flush">
