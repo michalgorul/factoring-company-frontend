@@ -111,14 +111,22 @@ const VatReport = () => {
 
                 })
                 .catch((error) => {
-                    errorToast('Something went wrong')
                     setIsPending(false);
-                    console.log(error);
+                    if(error.response.status === 404)
+                        errorToast('Customer does not have bank account or company');
+                    else
+                        errorToast('Something went wrong');
                 });
         } catch (error) {
+            setIsPending(false);
+
             return {error};
+
         }
+
     }
+
+
 
 
     const showGenerateReportButton = (customer) => {
