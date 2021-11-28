@@ -13,7 +13,7 @@ const CreditList = ({whatCredits}) => {
             <thead>
             <tr>
                 <th>#</th>
-                <th>Draw</th>
+                <th>Credit number</th>
                 <th>Draw Date</th>
                 <th>Amount</th>
                 <th>Next Payment</th>
@@ -47,7 +47,7 @@ const CreditList = ({whatCredits}) => {
                         </td>
                         <td>
                             <a href={"/user/credit/" + credit.id} className="text-decoration-none text-dark d-block">
-                                {credit.creationDate}
+                                {new Date(credit.creationDate).toDateString()}
                             </a>
                         </td>
                         <td>

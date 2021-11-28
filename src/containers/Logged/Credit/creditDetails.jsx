@@ -55,7 +55,7 @@ const CreditDetails = () => {
             if (status === 'funded') {
                 return ' - ';
             }
-            return nextPaymentDate;
+            return new Date(nextPaymentDate).toDateString();
         }
     }
 
@@ -66,7 +66,7 @@ const CreditDetails = () => {
                     {!isPending &&
                     <button className="btn btn-lg btn-primary rounded-pill" onClick={handleSigning}>Sign document</button>}
                     {isPending && <button className="btn btn-lg btn-primary rounded-pill" disabled onClick={handleSigning}>
-                        Sign document
+                        Generating...
                     </button>}
                 </>
 
@@ -176,8 +176,8 @@ const CreditDetails = () => {
                                 <ul className="list-group list-group-flush mb-3">
                                     <li className="list-group-item list-group-item-action">{credit.rateOfInterest + '%'}</li>
                                     <li className="list-group-item list-group-item-action">{nextPaymentDateStr()}</li>
-                                    <li className="list-group-item list-group-item-action">{credit.creationDate}</li>
-                                    <li className="list-group-item list-group-item-action">{credit.lastInstallmentDate}</li>
+                                    <li className="list-group-item list-group-item-action">{new Date(credit.creationDate).toDateString()}</li>
+                                    <li className="list-group-item list-group-item-action">{new Date(credit.lastInstallmentDate).toDateString()}</li>
                                 </ul>
                             </div>
                         </div>
