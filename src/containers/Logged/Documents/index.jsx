@@ -50,7 +50,7 @@ const Documents = () => {
             })
             .then(data => {
                 ifTokenCannotBeTrusted(data);
-                setUsedSpace(data);
+                setUsedSpace(Number(data));
             })
             .catch(err => {
                 console.log(err.message);
