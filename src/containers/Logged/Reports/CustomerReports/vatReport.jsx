@@ -113,9 +113,9 @@ const VatReport = () => {
                 .catch((error) => {
                     setIsPending(false);
                     if(error.response.status === 404)
-                        errorToast('Customer does not have bank account or company');
+                        errorToast('Customer does not have bank account');
                     else
-                        errorToast('Something went wrong');
+                        errorToast('There is no such nip number in the database');
                 });
         } catch (error) {
             setIsPending(false);
