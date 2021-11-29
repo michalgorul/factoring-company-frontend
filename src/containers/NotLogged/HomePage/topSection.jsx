@@ -40,7 +40,7 @@ export function TopSection(props) {
                                 <div className="display-5 text-white">for your business</div>
                             </h1>
                             <Marginer direction="vertical" margin={15}/>
-                            <Button>Apply Now</Button>
+                            <a href={"/register"} className="btn btn-lg btn-primary rounded-pill text-white">Apply Now</a>
                             <Marginer direction="vertical" margin={30}/>
                         </div>
                         <div className="col-lg-6 text-center d-none d-lg-block">

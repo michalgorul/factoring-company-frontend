@@ -113,7 +113,7 @@ const Footer = () => {
                                     Contact
                                 </h6>
                                 <p><HouseFill className="me-2"/>New York, NY 10012, US</p>
-                                <p><EnvelopeFill className="me-2"/>info@example.com</p>
+                                <p><EnvelopeFill className="me-2"/>info@fc.com</p>
                                 <p><TelephoneFill className="me-2"/>+ 01 234 567 88</p>
                                 <p><PrinterFill className="me-2"/>+ 01 234 567 89</p>
                             </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import {BrandLogo} from "../brandLogo";
-import {Divider} from 'rsuite';
-import {Navbar, Nav, Container, Popover, OverlayTrigger} from "react-bootstrap";
+import {Navbar, Nav, Container, OverlayTrigger} from "react-bootstrap";
+import Popover from 'react-bootstrap/Popover'
 
 
-export function NavbarSection(props) {
+export function NavbarSection() {
 
     const popover = (
         <Popover id="popover-basic">
@@ -19,14 +19,12 @@ export function NavbarSection(props) {
     return (
         <Navbar expand="lg">
             <Container>
-                <Navbar.Brand href="#home"><BrandLogo textSize={22}/></Navbar.Brand>
+                <Navbar.Brand href="/"><BrandLogo textSize={22}/></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-sm-center justify-content-md-end align-center">
                     <div className="">
                         <Nav className="">
-                            <OverlayTrigger trigger="focus" placement="bottom" overlay={popover}>
-                                <Nav.Link className="text-white h5 me-4">Contact <Divider vertical/></Nav.Link>
-                            </OverlayTrigger>
+                            <Nav.Link href="/" className="text-white h5 me-4">Contact</Nav.Link>
                             <Nav.Link href="/login" className="text-white h5 me-2">Login</Nav.Link>
                             <Nav.Link href="/register" className="text-white h5 d-lg-none">Register</Nav.Link>
                             <Nav.Link href="/register" className="btn btn-primary rounded-pill text-white h4 d-none d-lg-block">
