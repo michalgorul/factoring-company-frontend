@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import {BrandLogo} from "../../../components/brandLogo";
 import {Marginer} from "../../../components/marginer";
-import {Button} from "../../../components/button";
 
 import TopSectionIllustration from '../../../images/illustration.png';
 import TopSectionBg from '../../../images/TopSectionBG.jpg';

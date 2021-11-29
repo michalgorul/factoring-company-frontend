@@ -7,11 +7,12 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {errorToast, infoToast} from '../../../components/toast/makeToast';
 import {formatBytes} from '../../../services/filesService';
+import {useHistory} from "react-router-dom";
 
 const FileList = ({whatCatalog}) => {
     const {data: documents, error, isPending} = useFetchWithToken(`${config.API_URL}/api/file`)
     const [isPendingN, setIsPendingN] = useState(false);
-
+    const history = useHistory()
 
     useEffect(() => {
         if (documents) {
@@ -78,7 +79,7 @@ const FileList = ({whatCatalog}) => {
         })
             .then((response) => {
                 if (response.ok) {
-                    window.location.reload();
+                    history.push('/user/documents');
                     return response;
                 } else {
                     return response;

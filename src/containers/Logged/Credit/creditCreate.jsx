@@ -99,7 +99,7 @@ const CreditCreate = () => {
             .then((response) => {
                 setIsPendingN(false);
                 if (response.ok) {
-                    infoToast('Credit created');
+                    infoToast('Credit was created');
                 } else {
                     errorToast('Some of inputs were incorrect');
                 }

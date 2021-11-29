@@ -104,7 +104,7 @@ const InvoiceCreate = () => {
                 .then((response) => {
                     setIsPendingN(false);
                     if (response.ok) {
-                        history.goBack();
+                        history.push('/user/invoices');
                         return response;
                     } else {
                         return response
@@ -112,7 +112,7 @@ const InvoiceCreate = () => {
                 })
                 .then((response) => {
                     if (response.ok) {
-                        infoToast('Company was updated')
+                        infoToast('Invoice was created')
                     } else {
                         errorToast('Some of inputs were incorrect')
                     }

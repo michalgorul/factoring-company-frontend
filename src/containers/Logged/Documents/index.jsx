@@ -57,7 +57,7 @@ const Documents = () => {
             })
     }
 
-    // On file select (from the pop up)
+    // On file select (from the popup)
     const handleChange = event => {
         // Update the state
         setSelectedFile(event.target.files[0]);
@@ -65,21 +65,17 @@ const Documents = () => {
 
     const handleSubmit = (e) => {
 
-        // Create an object of formData
-        const formData = new FormData();
-
-        // Update the formData object
-        formData.append(
-            "myFile",
-            selectedFile,
-            selectedFile.name
-        );
-
         if (selectedFile) {
             e.preventDefault();
-
+            // Create an object of formData
+            let formData = new FormData();
+            formData.append(
+                "myFile",
+                selectedFile,
+                selectedFile.name
+            );
             setIsPending(true);
-            const formData = new FormData();
+            formData = new FormData();
             formData.append("file", selectedFile);
 
             fetch(`${config.API_URL}/api/file?catalog=${catalog}`, {
