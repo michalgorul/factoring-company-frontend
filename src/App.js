@@ -46,6 +46,7 @@ import CreditSchedule from "./containers/Logged/Credit/creditSchedule";
 import TransactionDetails from "./containers/Logged/Transactions/transactionDetails";
 import ExpenseReports from "./containers/Logged/Reports/ExpenseReports";
 import Charts from "./containers/Logged/Reports/Charts";
+import RegisterSuccess from "./containers/NotLogged/RegisterPage/registerSuccess";
 
 
 const UserComponents = ({match}) => {
@@ -108,6 +109,7 @@ function App() {
                         <Route path="/password/reset/change/success" exact component={PasswordResetSuccess}/>
                         <Route path="/password/reset/change" component={PasswordResetChange}/>
                         <Route path="/register" exact component={Register}/>
+                        <Route path="/register/success/:token" exact component={RegisterSuccess}/>
                         <Route path="/terms-of-use" exact component={TermsOfUse}/>
                         <Route path="/user" component={UserComponents}/>
                         <Route path="*" component={NotFound}/>
