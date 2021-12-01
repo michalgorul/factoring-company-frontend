@@ -45,7 +45,7 @@ const Support = () => {
                                 <p className="lead card-subtitle mb-4">Submit a ticket to out support team. Our average response
                                     time is 1 hour and maximum 24 hours</p>
                                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                <a href="#" className="stretched-link"> </a>
+                                <a href={"/ticket"} className="stretched-link"> </a>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ const Support = () => {
                                 <p className="lead card-subtitle mb-4">Contact support team via Live Chat. Live Chat is online at
                                     8am to 6 pm from Monday to Friday</p>
                                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                                <a href="#" className="stretched-link"> </a>
+                                <a href={"/chat"} className="stretched-link"> </a>
                             </div>
                         </div>
                     </div>
