@@ -6,12 +6,16 @@ const MainPageLoged = () => {
             <div className="mt-5 row g-4 justify-content-center align-items-center">
                 <div className="col-md-5 text-center text-md-start">
                     <h1>
-                        <div className="display-2">Welcome back!</div>
-                        <div className="display-5 text-muted">Happy to see you</div>
+                        <div className="display-2">Welcome</div>
+                        <div className="display-5 text-muted">Happy to see you!</div>
                     </h1>
-                    <p className="lead my-4 text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis dolore
-                        temporibus reprehenderit culpa nulla labore aperiam recusandae eos tempora.</p>
-                    <a href={"/user/invoices"} className="btn btn-primary btn-lg rounded-pill">Invoices</a>
+                    <blockquote className="blockquote">
+                        <p className="lead my-4">By pursuing his own interest he frequently promotes that of the society
+                            more effectually than when he really intends to promote it.</p>
+                        <footer className="blockquote-footer">Adam Smith in <cite title="Source Title">The Wealth of Nations</cite>
+                        </footer>
+                    </blockquote>
+
                 </div>
                 <div className="col-md-6 text-center d-none d-md-block">
                     <span data-bs-placement="bottom" title="Welcome">

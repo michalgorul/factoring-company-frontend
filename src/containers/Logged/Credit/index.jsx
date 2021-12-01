@@ -23,6 +23,19 @@ const Credit = () => {
 
     }
 
+    const showDrawFundsButton = () => {
+        if(usedCredit >= availableCredit)
+            return (
+                <a href={"/user/credit/create"} className="btn btn-primary rounded-pill btn-lg float-end disabled"
+                   onClick={drawFunds}>Draw funds</a>
+            )
+        return (
+            <a href={"/user/credit/create"} className="btn btn-primary rounded-pill btn-lg float-end"
+               onClick={drawFunds}>Draw funds</a>
+        )
+
+    }
+
 
     return (
         <div>
@@ -53,8 +66,7 @@ const Credit = () => {
                 <div className="container mt-3 me-0">
                     <div className="row">
                         <div className="col-12 align-items-center align-middle">
-                            <a href={"/user/credit/create"} className="btn btn-primary rounded-pill btn-lg float-end"
-                               onClick={drawFunds}>Draw funds</a>
+                            {showDrawFundsButton()}
                         </div>
                     </div>
                 </div>

@@ -130,11 +130,11 @@ const CreditCreate = () => {
                                         <span className="fs-5 ms-2 pe-3">How much do you want to draw?</span>
                                         <div className="row">
                                             <div className="col-7 col-lg-9">
-                                                <RangeSlider min={0} max={maxToDraw} size="lg" step="10" value={drawValue}
+                                                <RangeSlider min={1} max={maxToDraw} size="lg" step="10" value={drawValue}
                                                              onChange={changeEvent => setDrawValue(changeEvent.target.value)}/>
                                             </div>
                                             <div className="col-5 col-lg-3">
-                                                <input type="number" min="0" className="form-control" max={maxToDraw}
+                                                <input type="number" min="1" className="form-control" max={maxToDraw}
                                                        placeholder="1" required value={drawValue}
                                                        onChange={(e) => setDrawValue(e.target.value)}/>
                                             </div>
