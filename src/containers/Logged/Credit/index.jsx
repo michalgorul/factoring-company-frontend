@@ -53,7 +53,7 @@ const Credit = () => {
                     <div className="container ms-0">
                         <div className="col-12 col-lg-6">
                             <div className="mb-1 mt-3">
-                                <span className="display-4 fw-bold mb-2">${usedCredit}</span> of <span
+                                <span className="display-4 fw-bold mb-2">${Number(usedCredit).toFixed(2)}</span> of <span
                                 className="display-5">${availableCredit}</span>
                                 <p className="fs-5 ms-2">Your available credit</p>
                             </div>
