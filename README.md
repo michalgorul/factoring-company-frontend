@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Application for managing a factoring company
 
-## Available Scripts
+The main part of the work will be designing and developing a web application. The system will cover part of the factoring company's business processes. Among others, it will include generating contracts and accounting documents or automation of settlements of payments, remunerations, interest and sending money to the clients. The aim of the project is to reduce manual work, which will result in a much faster execution of orders and lower costs for a potential factoring company. As a security layer i use Spring Security with JWT.
 
-In the project directory, you can run:
+#### Availability
+Project is available as [Heroku app](https://factoring-company.herokuapp.com)
 
-### `npm start`
+## Database diagram
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Database diagram](https://user-images.githubusercontent.com/43811151/147573672-678c26bb-3b25-4974-8c84-0833cae13e7a.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `npm test`
+## Use case diagram
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Use case diagram](https://user-images.githubusercontent.com/43811151/147573633-09e21e7c-e94a-4ada-b5e1-787f7db731e2.png)
 
-### `npm run build`
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contact
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Michał Góral - michgor088@student.polsl.pl
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `npm run eject`
+## Sample code snippents
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Entity
+```java
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@Table(name = "bank_account", schema = "public", catalog = "factoring_company")
+public class BankAccountEntity {
+    @Id
+    @SequenceGenerator(
+            name = "bank_account_sequence",
+            sequenceName = "bank_account_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "bank_account_sequence"
+    )
+    private Long id;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    @Column(name = "bank_swift", nullable = false, length = 8)
+    private String bankSwift;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    @Column(name = "bank_account_number", nullable = false, length = 28, unique = true)
+    private String bankAccountNumber;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    @Column(name = "bank_name", nullable = false, length = 50)
+    private String bankName;
 
-## Learn More
+    @Column(name = "seller_id", nullable = true)
+    private Integer sellerId;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    @Column(name = "company_id", nullable = true)
+    private Integer companyId;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "seller_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private SellerEntity sellerBySellerId;
 
-### Code Splitting
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "company_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private CompanyEntity companyByCompanyId;
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Controller
+```java 
+@AllArgsConstructor
+@RestController
+@RequestMapping(path = "/api/customer")
+public class CustomerController {
 
-### Analyzing the Bundle Size
+    private final CustomerService customerService;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    @GetMapping
+    public List<CustomerEntity> getCustomers() {
+        return customerService.getCustomers();
+    }
 
-### Making a Progressive Web App
+    @GetMapping(path = "/current")
+    public List<CustomerEntity> getCurrentUserCustomers() {
+        return customerService.getCurrentUserCustomers();
+    }
+    
+    @GetMapping(path = "/{id}")
+    public CustomerEntity getCustomer(@PathVariable Long id) {
+        return this.customerService.getCustomer(id);
+    }
+    
+    @PostMapping
+    public CustomerEntity addCustomer(@RequestBody CustomerRequestDto customerRequestDto) {
+        return this.customerService.addCustomer(customerRequestDto);
+    }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    @PutMapping("/{id}")
+    public CustomerEntity updateCustomer(@PathVariable Long id, @RequestBody CustomerRequestDto customerRequestDto) {
+        return this.customerService.updateCustomer(id, customerRequestDto);
+    }
 
-### Advanced Configuration
+    @DeleteMapping("/{id}")
+    public void deleteCustomer(@PathVariable Long id) {
+        customerService.deleteCustomer(id);
+    }
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Repository
 
-### Deployment
+```java
+@Repository
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    Optional<UserEntity> findByEmail(String email);
+    Optional<UserEntity> findByUsername(String username);
+}
+```
 
-### `npm run build` fails to minify
+### Sample service method
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```java
+@Transactional
+    public ProductEntity updateProduct(Long id, String name, String pkwiu, String measureUnit) {
+
+        Optional<ProductEntity> productEntity = productRepository.findById(id);
+
+        if (productEntity.isEmpty())
+            throw new IdNotFoundInDatabaseException("Product", id);
+
+        validating(name, pkwiu, measureUnit);
+
+        try {
+            productEntity.get().setName(StringUtils.capitalize(name));
+            productEntity.get().setMeasureUnit(measureUnit);
+            productEntity.get().setPkwiu(pkwiu);
+            return this.productRepository.save(productEntity.get());
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+    }
+```
+<p align="right">(<a href="#top">back to top</a>)</p>
