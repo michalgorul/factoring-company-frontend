@@ -63,8 +63,7 @@ const ProfileEdit = () => {
             .then((response) => {
                 setIsPendingN(false);
                 if (response.ok) {
-                    history.push('/user/customers');
-                    window.location.reload();
+                    history.push('/user/profile');
                     return response;
                 } else {
                     return response;
