@@ -113,10 +113,6 @@ const Profile = () => {
             return (
                 <a href={"/user/profile/bank/create"} className="text-decoration-none ml-auto h6">Add your bank account</a>
             )
-        } else {
-            return (
-                <a href={"/user/profile/bank/create"} className="text-decoration-none ml-auto h6">Add your bank account</a>
-            )
         }
     }
 
